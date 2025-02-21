@@ -7,13 +7,16 @@ using TMPro;
 public class CoinAnimator : MonoBehaviour
 {
     [SerializeField]
+    private SlotBehaviour slotBehaviour;
+
+    [SerializeField]
     private GameObject[] CoinList;
     [SerializeField]
     private GameObject AnimGameObject;
 
     [SerializeField]
     private Tween[] allCoinTween;
-
+    private Vector3 startTransform;
 
     [SerializeField] Transform CoinStartPos;
     [SerializeField] Transform CoinMiddlePos;
@@ -26,27 +29,34 @@ public class CoinAnimator : MonoBehaviour
         {
             item.SetActive(false);
         }
-       // StartCoroutine(CoinSpawn(5));
+        startTransform = CoinList[0].transform.localScale;
     }
 
 
     internal IEnumerator StartCoinAnimation(double WinAmount)
     {
+        
         AnimGameObject.SetActive(true);
         yield return (CoinSpawn(WinAmount));
         foreach (var coin in CoinList)
         {
             coin.SetActive(false);
         }
-       // CoinAddTxt.gameObject.SetActive(false);
-        //AnimGameObject.SetActive(false);
+        StartCoroutine(DelayStop());
     }
 
+    IEnumerator DelayStop()
+    {
+        yield return new WaitForSeconds(1.2f);
+        CoinAddTxt.gameObject.SetActive(false);
+        AnimGameObject.SetActive(false);
+    }
     internal void StopCoinAnimation()
     {
         foreach (var coin in CoinList)
         {
             coin.SetActive(false);
+            coin.transform.localScale = startTransform;
         }
         CoinAddTxt.gameObject.SetActive(false);
         AnimGameObject.SetActive(false);
@@ -86,6 +96,7 @@ public class CoinAnimator : MonoBehaviour
         foreach (var coin in CoinList)
         {
             coin.transform.DOLocalMove(CoinEndPos.localPosition, Random.Range(0.1f, 0.2f)).SetEase(Ease.Linear);
+            coin.transform.DOScale(coin.transform.localScale * 0.7f, 0.05f);
             yield return new WaitForSeconds(0.05f);
             //coin.SetActive(false);
         }

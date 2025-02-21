@@ -512,10 +512,10 @@ public class SlotBehaviour : MonoBehaviour
             }
         }
 
-        if (IsTurboOn || IsFreeSpin)
+        if (IsTurboOn )
         {
 
-            yield return new WaitForSeconds(0.1f);
+            StopSpinToggle = true;
         }
         else
         {
@@ -548,7 +548,11 @@ public class SlotBehaviour : MonoBehaviour
             SpinDelay = 0.2f;
         }
         CheckPayoutLineBackend(SocketManager.resultData.linesToEmit, SocketManager.resultData.FinalsymbolsToEmit, SocketManager.resultData.jackpot);
+        if (IsTurboOn && SocketManager.playerdata.currentWining > 0)
+        {
 
+            yield return new WaitForSeconds(1f);
+        }
         CheckPopups = true;
 
         if (TotalWin_text) TotalWin_text.text = SocketManager.playerdata.currentWining.ToString("F3");
