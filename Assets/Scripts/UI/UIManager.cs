@@ -396,6 +396,7 @@ public class UIManager : MonoBehaviour
 
     public void OnClickPayTableButtons(int id)
     {
+        if (audioController) audioController.PlayButtonAudio();
         foreach (var item in PaytableButtonsImages)
         {
             item.SetActive(false);
