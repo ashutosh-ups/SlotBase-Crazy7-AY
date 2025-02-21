@@ -470,6 +470,8 @@ public class SlotBehaviour : MonoBehaviour
     {
         ResetBorder();
         coinAnimator.StopCoinAnimation();
+        if (TotalWin_text) TotalWin_text.text = "0.000";
+
         if (currentBalance < currentTotalBet && !IsFreeSpin)
         {
             CompareBalance();
