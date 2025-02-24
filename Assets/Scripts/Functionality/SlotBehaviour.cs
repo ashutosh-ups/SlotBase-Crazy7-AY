@@ -807,8 +807,8 @@ public class SlotBehaviour : MonoBehaviour
     {
         alltweens[index].Kill();
         int tweenpos = (reqpos * IconSizeFactor) - IconSizeFactor;
-        slotTransform.localPosition = new Vector2(slotTransform.localPosition.x, 0);
-        alltweens[index] = slotTransform.DOLocalMoveY(150, 0.5f).SetEase(Ease.OutElastic);
+        slotTransform.localPosition = new Vector2(slotTransform.localPosition.x, 500);
+        alltweens[index] = slotTransform.DOLocalMoveY(-300, 0.5f).SetEase(Ease.OutElastic);
         if (!isStop)
         {
             yield return new WaitForSeconds(0.2f);
