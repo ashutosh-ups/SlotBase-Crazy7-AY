@@ -5934,7 +5934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -776.7, y: -494}
+  m_AnchoredPosition: {x: -657, y: -442.1}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &310618274
@@ -9378,7 +9378,7 @@ MonoBehaviour:
   uiManager: {fileID: 377874625}
   bonusdata: []
   _jsManager: {fileID: 500036493}
-  testToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjU1MTA1MGJjMDc4ODcyMWUxYmEwMSIsInVzZXJuYW1lIjoiZGV2MDEiLCJyb2xlIjoicGxheWVyIiwiaWF0IjoxNzM5Nzg2ODQxLCJleHAiOjE3NDAzOTE2NDF9.zrKxOcRtDJW38D9PYOguR1oh5-M2gyoYNAjN9pQD0Ac
+  testToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjU1MTA1MGJjMDc4ODcyMWUxYmEwMSIsInVzZXJuYW1lIjoiZGV2MDEiLCJyb2xlIjoicGxheWVyIiwiaWF0IjoxNzQwMzk1OTQ3LCJleHAiOjE3NDEwMDA3NDd9.EQI99IHi8ETCay-9BXkrBFy_Uo0pyLIXOfa1LkxV5iU
 --- !u!114 &500036493
 MonoBehaviour:
   m_ObjectHideFlags: 0
