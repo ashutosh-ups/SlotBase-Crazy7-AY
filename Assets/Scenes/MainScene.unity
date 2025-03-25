@@ -9377,6 +9377,7 @@ MonoBehaviour:
   slotManager: {fileID: 2046803210}
   uiManager: {fileID: 377874625}
   bonusdata: []
+  JSManager: {fileID: 1933872098}
   _jsManager: {fileID: 500036493}
   testToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjU1MTA1MGJjMDc4ODcyMWUxYmEwMSIsInVzZXJuYW1lIjoiZGV2MDEiLCJyb2xlIjoicGxheWVyIiwiaWF0IjoxNzQwNjU1MTg1LCJleHAiOjE3NDEyNTk5ODV9.2K_T9rwdkwu5Nx13dtoRAg1m99HcDiHuxzEO4tzQMJM
 --- !u!114 &500036493
@@ -36076,6 +36077,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927916411}
   m_CullTransparentMesh: 1
+--- !u!1 &1933872097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1933872099}
+  - component: {fileID: 1933872098}
+  m_Layer: 0
+  m_Name: JS FuncManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1933872098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933872097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e359858ad0ccd47249cd9fee6b489f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1933872099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933872097}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0250725, y: 3.9837584, z: -4.778791}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1951510020
 GameObject:
   m_ObjectHideFlags: 0
@@ -41749,3 +41794,4 @@ SceneRoots:
   - {fileID: 65498558}
   - {fileID: 8217964018994044620}
   - {fileID: 5907248699278876388}
+  - {fileID: 1933872099}
