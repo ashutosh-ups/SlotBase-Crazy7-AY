@@ -29161,6 +29161,11 @@
             Called when the Unity application's foreground state changed.
             </summary>
         </member>
+        <member name="M:Best.HTTP.Shared.HTTPUpdateDelegator.ResetSetup">
+            <summary>
+            Called after scene loaded to support Configurable Enter Play Mode (https://docs.unity3d.com/2019.3/Documentation/Manual/ConfigurableEnterPlayMode.html)
+            </summary>
+        </member>
         <member name="M:Best.HTTP.Shared.HTTPUpdateDelegator.CheckInstance">
             <summary>
             Will create the HTTPUpdateDelegator instance and set it up.
@@ -33244,6 +33249,17 @@
             An IAuthenticator implementation that can be used to authenticate the request.
             </summary>
             <remarks>Out-of-the-box included authenticators are <see cref="T:Best.HTTP.Request.Authenticators.CredentialAuthenticator"/> and <see cref="T:Best.HTTP.Request.Authenticators.BearerTokenAuthenticator"/>.</remarks>
+        </member>
+        <member name="P:Best.HTTP.HTTPRequest.WithCredentials">
+            <summary>
+            Its value will be set to the XmlHTTPRequest's withCredentials field, required to send 3rd party cookies with the request.
+            </summary>
+            <remarks>
+            More details can be found here:
+            <list type="bullet">
+                <item><description><see href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials">Mozilla Developer Networks - XMLHttpRequest.withCredentials</see></description></item>
+            </list>
+            </remarks>
         </member>
         <member name="P:Best.HTTP.HTTPRequest.Context">
             <summary>
