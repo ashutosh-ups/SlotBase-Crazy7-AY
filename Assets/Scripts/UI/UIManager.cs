@@ -70,7 +70,6 @@ public class UIManager : MonoBehaviour
     private GameObject[] PaytablePages;
     [SerializeField]
     private GameObject[] PaytableButtonsImages;
-    private int currentPayTablePage =0;
 
 
     [Header("Settings Popup")]
