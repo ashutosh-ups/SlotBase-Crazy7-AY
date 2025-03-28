@@ -80,7 +80,7 @@ public class SocketIOManager : MonoBehaviour
         var data = JsonUtility.FromJson<AuthTokenData>(jsonData);
         SocketURI = data.socketURL;
         myAuth = data.cookie;
-
+        nameSpace = data.nameSpace;
         // Proceed with connecting to the server using myAuth and socketURL
     }
 
@@ -95,8 +95,6 @@ public class SocketIOManager : MonoBehaviour
         options.Reconnection = true;
 
         options.ConnectWith = Best.SocketIO.Transports.TransportTypes.WebSocket; //BackendChanges
-
-        // Application.ExternalCall("window.parent.postMessage", "authToken", "*");
 
 #if UNITY_WEBGL && !UNITY_EDITOR
         JSManager.SendCustomMessage("authToken");
@@ -187,15 +185,8 @@ public class SocketIOManager : MonoBehaviour
     private void OnDisconnected(string response)
     {
         Debug.Log("Disconnected from the server");
-        //if (maxReconnectionAttempts <= this.manager.ReconnectAttempts)
-        //{
         StopAllCoroutines();
         uiManager.DisconnectionPopup(false);
-        //}
-        //else
-        //{
-        //    uiManager.DisconnectionPopup(false);
-        //}
     }
 
     private void OnError(string response)
@@ -205,7 +196,6 @@ public class SocketIOManager : MonoBehaviour
 
     private void OnListenEvent(string data)
     {
-        // Debug.Log("Received some_event with data: " + data);
         ParseResponse(data);
     }
 
@@ -214,10 +204,6 @@ public class SocketIOManager : MonoBehaviour
         if (state)
         {
             Debug.Log("my state is " + state);
-        }
-        else
-        {
-
         }
     }
     private void OnSocketError(string data)
@@ -295,7 +281,6 @@ public class SocketIOManager : MonoBehaviour
                     bonusdata = myData.message.BonusData;
                     if (!SetInit)
                     {
-                        Debug.Log(jsonObject);
                         List<string> LinesString = ConvertListListIntToListString(initialData.Lines);
                         List<string> InitialReels = ConvertListOfListsToStrings(initialData.Reel);
                         InitialReels = RemoveQuotes(InitialReels);
@@ -310,7 +295,6 @@ public class SocketIOManager : MonoBehaviour
                 }
             case "ResultData":
                 {
-                    // Debug.Log(jsonObject);
                     myData.message.GameData.FinalResultReel = ConvertListOfListsToStrings(myData.message.GameData.ResultReel);
                     myData.message.GameData.FinalsymbolsToEmit = TransformAndRemoveRecurring(myData.message.GameData.symbolsToEmit);
                     resultData = myData.message.GameData;
@@ -320,6 +304,7 @@ public class SocketIOManager : MonoBehaviour
                 }
             case "ExitUser":
                 {
+                    gameSocket.Disconnect();
                     if (this.manager != null)
                     {
                         Debug.Log("Dispose my Socket");
